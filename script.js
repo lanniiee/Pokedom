@@ -1,12 +1,14 @@
 import defaultExport, { pokemonArray } from "./data/pokemon.js"
 
 const cardContainer = document.querySelector(".card-container");
-const searchBox = document.querySelector(".search__box");
+const searchInput = document.getElementById("search");
 
-pokemonArray.forEach((pokemon) => {
+let result = [];
+
+const displayPokemon = () => {
+    pokemonArray.forEach((pokemon) => {
     const name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
     const types = pokemon.types.join(" & ");
-    console.log(types);
     cardContainer.innerHTML +=
     `<div class="card">
             <img src="${pokemon.sprite}" class="card__image">
@@ -16,3 +18,20 @@ pokemonArray.forEach((pokemon) => {
             </div>
     </div>`;
 });
+};
+
+displayPokemon(pokemonArray);
+
+searchInput.addEventListener("input", (e) => {
+    const searchStr = e.target.value;
+    const result = pokemonArray.filter((pokemon) => {
+        if (pokemon.name == searchStr || pokemon.types.includes(`${searchStr}`)) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    displayPokemon(result);
+    console.log(result);
+});
+
