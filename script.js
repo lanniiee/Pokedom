@@ -1,7 +1,7 @@
 import defaultExport, { pokemonArray } from "./data/pokemon.js"
 
 const cardContainer = document.querySelector(".card-container");
-
+const searchBox = document.querySelector(".search__box");
 
 pokemonArray.forEach((pokemon) => {
     const name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
