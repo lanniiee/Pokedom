@@ -22,16 +22,4 @@ const displayPokemon = () => {
 
 displayPokemon(pokemonArray);
 
-searchInput.addEventListener("input", (e) => {
-    const searchStr = e.target.value;
-    const result = pokemonArray.filter((pokemon) => {
-        if (pokemon.name == searchStr || pokemon.types.includes(`${searchStr}`)) {
-            return true;
-        } else {
-            return false;
-        }
-    });
-    displayPokemon(result);
-    console.log(result);
-});
 
