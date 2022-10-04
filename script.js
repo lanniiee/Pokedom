@@ -20,7 +20,7 @@ cardContainer.innerHTML +=
     </div>`;
 });
 
-// filter pokemon by name. At the moment only exact match
+// filter pokemon by name and types
 const filterPokemon = () => {
     let input = document.getElementById("search").value.toLowerCase();
     const card = document.querySelectorAll(".card");
@@ -30,7 +30,7 @@ const filterPokemon = () => {
         const name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
         const types = pokemon.types.join(" & ");
         let result = [];
-        if (input == pokemon.name) {
+        if (pokemon.name.includes(input)) {
             cardContainer.innerHTML += 
             `<div class="card">
                 <img src="${pokemon.sprite}" class="card__image" id="${name}">
