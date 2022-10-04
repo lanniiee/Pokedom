@@ -22,8 +22,7 @@ cardContainer.innerHTML +=
 
 // filter pokemon by name. At the moment only exact match
 const filterPokemon = () => {
-    let input = document.getElementById("search").value;
-    input = input.toLowerCase();
+    let input = document.getElementById("search").value.toLowerCase();
     const clearCard = document.querySelectorAll(".card");
     clearCard.forEach(card => card.remove());
 
